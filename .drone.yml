@@ -40,7 +40,7 @@ steps:
         - docker rmi $(docker images | grep "registry.cn-beijing.aliyuncs.com/rock_chao/drone" | awk '{print $3}')
         - echo "remove images..."
         - docker run -d --name droneDemo -p 8099:8080 registry.cn-beijing.aliyuncs.com/rock_chao/drone:${DRONE_COMMIT}
-        - echo "jar run ..."
+        - echo "docker images run ..."
     when:
       event: [ promote ]
 volumes:
