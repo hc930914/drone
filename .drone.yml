@@ -33,6 +33,12 @@ steps:
       port: 22
       script:
         - echo "connect server..."
+        - docker stop droneDemo
+        - echo "stop container..."
+        - docker rm droneDemo
+        - echo "remove container..."
+        - docker rmi $(docker images | grep "registry.cn-beijing.aliyuncs.com/rock_chao/drone" | awk '{print $3}')
+        - echo "remove images..."
         - docker run -d --name droneDemo -p 8099:8080 registry.cn-beijing.aliyuncs.com/rock_chao/drone:${DRONE_COMMIT}
         - echo "jar run ..."
     when:
