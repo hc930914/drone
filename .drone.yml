@@ -34,7 +34,7 @@ steps:
       script:
         - echo "connect server..."
         - docker run -d --name droneDemo -p 8099:8080 registry.cn-beijing.aliyuncs.com/rock_chao/drone:${DRONE_COMMIT}
-        - echo "run ..."
+        - echo "jar run ..."
     when:
       event: [ promote ]
 volumes:
